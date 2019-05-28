@@ -1,0 +1,54 @@
+body {
+    background-image: url("../images/background-automne.jpeg");
+    background-position: top;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+.picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // line-height: 0;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 2;
+}
+
+.large {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.picture {
+    border-radius: 20px;
+    padding: 2px;
+    transition: .3s ease-in-out;
+}
+
+.pictureOver {
+    border-radius: 20px;
+    padding: 2px;
+    transform: scale(1.05);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.navbar-btn {
+    background: rgba(255, 255, 255, 1);
+}
