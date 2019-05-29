@@ -2,7 +2,6 @@ import React from 'react';
 import Board from './components/Board';
 import NavBar from './components/NavBar';
 import ModalPicture from './components/ModalPicture';
-import {Image} from 'cloudinary-react';
 import './scss/style.scss';
 
 class Expo extends React.Component {
