@@ -1,4 +1,5 @@
 import React from 'react';
+import {Image} from 'cloudinary-react';
 import '../scss/style.scss'
 
 class Picture extends React.Component {
@@ -13,15 +14,20 @@ class Picture extends React.Component {
     render() {
         return (
             <div className={this.props.pictureClass}>
-                <img
-                    className={this.state.mouseOver ? "pictureOver" : "picture"}
-                    onMouseOver={() => this.setState({ mouseOver: true })}
-                    onMouseOut={() => this.setState({ mouseOver: false })}
-                    onClick={this.props.onClick}
-                    src={this.props.picture}
-                    alt="Tableau"
-                    >
-                </img>
+                {this.props.picture.rescale === "height" ?
+                    <Image cloudName="hn5dy9tfe" publicId={this.props.picture.name} height={this.props.picture.height} crop="scale"
+                        className={this.state.mouseOver ? "pictureOver" : "picture"}
+                        onMouseOver={() => this.setState({ mouseOver: true })}
+                        onMouseOut={() => this.setState({ mouseOver: false })}
+                        onClick={this.props.onClick}
+                    /> :
+                    <Image cloudName="hn5dy9tfe" publicId={this.props.picture.name} width={this.props.picture.width} crop="scale"
+                        className={this.state.mouseOver ? "pictureOver" : "picture"}
+                        onMouseOver={() => this.setState({ mouseOver: true })}
+                        onMouseOut={() => this.setState({ mouseOver: false })}
+                        onClick={this.props.onClick}
+                    />
+                }
             </div>
         );
       }

@@ -1,0 +1,104 @@
+[
+  {
+    "name": "pan.jpg",
+    "width": 2008,
+    "height": 3871,
+    "class": "tall"
+  },
+  {
+    "name": "prise_de_tête.jpg",
+    "width": 3751,
+    "height": 3325,
+    "class": "normal"
+  },
+  {
+    "name": "dame_blanche.jpg",
+    "width": 3435,
+    "height": 4917,
+    "class": "tall"
+  },
+  {
+    "name": "zèbres.jpg",
+    "width": 3167,
+    "height": 3785,
+    "class": "large"
+  },
+  {
+    "name": "oiseau.jpg",
+    "width": 4113,
+    "height": 3117,
+    "class": "wide"
+  },
+  {
+    "name": "jumelles.jpg",
+    "width": 5016,
+    "height": 3240,
+    "class": "wide"
+  },
+  {
+    "name": "jumelles2.jpg",
+    "width": 5184,
+    "height": 3456,
+    "class": "tall"
+  },
+  {
+    "name": "goutte.jpg",
+    "width": 3345,
+    "height": 4993,
+    "class": "tall"
+  },
+  {
+    "name": "observateur.jpg",
+    "width": 3339,
+    "height": 5052,
+    "class": "tall"
+  },
+  {
+    "name": "goutte2.jpg",
+    "width": 2702,
+    "height": 5079,
+    "class": "tall"
+  },
+  {
+    "name": "lys.jpg",
+    "width": 3665,
+    "height": 3456,
+    "class": "normal"
+  },
+  {
+    "name": "lys2.jpg",
+    "width": 3231,
+    "height": 3062,
+    "class": "normal"
+  },
+  {
+    "name": "energie.jpg",
+    "width": 3696,
+    "height": 2891,
+    "class": "wide"
+  },
+  {
+    "name": "bambou.jpg",
+    "width": 2797,
+    "height": 2859,
+    "class": "large"
+  },
+  {
+    "name": "bambou2.jpg",
+    "width": 2749,
+    "height": 3037,
+    "class": "normal"
+  },
+  {
+    "name": "cerisier.jpg",
+    "width": 3172,
+    "height": 3035,
+    "class": "large"
+  },
+  {
+    "name": "cerisier2.jpg",
+    "width": 3080,
+    "height": 3164,
+    "class": "normal"
+  }
+]

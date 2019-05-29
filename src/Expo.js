@@ -2,6 +2,7 @@ import React from 'react';
 import Board from './components/Board';
 import NavBar from './components/NavBar';
 import ModalPicture from './components/ModalPicture';
+import {Image} from 'cloudinary-react';
 import './scss/style.scss';
 
 class Expo extends React.Component {
@@ -9,23 +10,36 @@ class Expo extends React.Component {
     super(props);
 
     this.state = {
-      pictures: ["https://picsum.photos/400/200", "https://picsum.photos/200/200", "https://picsum.photos/400/200",
-      "https://picsum.photos/200/400", "https://picsum.photos/200/400", "https://picsum.photos/200/200", "https://picsum.photos/400/400",
-      "https://picsum.photos/200/400", "https://picsum.photos/400/200", "https://picsum.photos/400/200", "https://picsum.photos/200/400"],
+      pictures: [],
+      modalPicture: ""
     }
 
     this.addPicture = this.addPicture.bind(this);
     this.shuffle = this.shuffle.bind(this);
-    this.picturesClass = this.picturesClass.bind(this);
+    this.getClass = this.getClass.bind(this);
     this.zoom = this.zoom.bind(this);
     this.close_modal = this.close_modal.bind(this);
+    this.getPics = this.getPics.bind(this);
+    this.getDimensions = this.getDimensions.bind(this);
+
+    this.getPics();
+  }
+
+  getPics() {
+    fetch("images.json")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          pictures: data
+        });
+      });
   }
 
   zoom(index) {
+    this.setState({
+      modalPicture: this.state.pictures[index].name
+    });
     var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-
-    modalImg.src = this.state.pictures[index];
     modal.style.display = "block";
   }
 
@@ -68,21 +82,67 @@ class Expo extends React.Component {
     });
   }
   
-  picturesClass() {
+  getDimensions() {
     const array = [];
     this.state.pictures.forEach(picture => {
-      let measure = picture.match(/\d+/g);
-      
-      if (measure[0] === "400" && measure[1] === "200")
-        array.push("wide picture-container");
-      else if (measure[0] === "200" && measure[1] === "400")
-        array.push("tall picture-container");
-      else if (measure[0] === "400" && measure[1] === "400")
-        array.push("large picture-container");
-      else
-        array.push("normal picture-container");
+      switch (picture.class) {
+        case 'wide':
+          array.push({
+            name: picture.name,
+            width: 400,
+            rescale: "width"
+          });
+          break;
+        case 'tall':
+          array.push({
+            name: picture.name,
+            height: 400,
+            rescale: "height"
+          });
+          break;
+        case 'large':
+            if (picture.height >= picture.width) {
+              array.push({
+                name: picture.name,
+                height: 400,
+                rescale: "height"
+              });
+            }
+            else {
+              array.push({
+                name: picture.name,
+                width: 400,
+                rescale: "width"
+              });
+            }
+            break;
+        default:
+          if (picture.height >= picture.width) {
+            array.push({
+              name: picture.name,
+              height: 200,
+              rescale: "height"
+            });
+          }
+          else {
+            array.push({
+              name: picture.name,
+              width: 200,
+              rescale: "width"
+            });
+          }
+          break;
+      }
     });
 
+    return array;
+  }
+
+  getClass() {
+    const array = [];
+    this.state.pictures.forEach(picture => {
+      array.push(picture.class + " picture-container");
+    });
     return array;
   }
 
@@ -90,9 +150,9 @@ class Expo extends React.Component {
     return (
       <div>
         <NavBar shuffle={this.shuffle} addPicture={this.addPicture}/>
-        <ModalPicture close={this.close_modal}/>
+        <ModalPicture close={this.close_modal} picture={this.state.modalPicture}/>
         <div>
-          <Board pictures={this.state.pictures} picturesClass={this.picturesClass()} onClick={this.zoom}/>
+          <Board pictures={this.getDimensions()}  picturesClass={this.getClass()} onClick={this.zoom}/>
         </div>
       </div>
     );
