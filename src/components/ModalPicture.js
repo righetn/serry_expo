@@ -1,7 +1,7 @@
 import React from 'react';
 import '../scss/style.scss';
 
-const Modal_picture = ({ close = () => {} }) => (
+const ModalPicture = ({ close = () => {} }) => (
     <div id="myModal" className="modal">
         <span className="close" onClick={close}>&times;</span>
 
@@ -11,4 +11,4 @@ const Modal_picture = ({ close = () => {} }) => (
     </div>
 );
 
-export default Modal_picture;
+export default ModalPicture;

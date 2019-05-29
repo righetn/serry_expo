@@ -1,8 +1,7 @@
 import React from 'react';
 import Board from './components/Board';
 import NavBar from './components/NavBar';
-import Modal_picture from './components/Modal_picture';
-import Modal from 'react-bootstrap/Modal';
+import ModalPicture from './components/ModalPicture';
 import './scss/style.scss';
 
 class Expo extends React.Component {
@@ -91,7 +90,7 @@ class Expo extends React.Component {
     return (
       <div>
         <NavBar shuffle={this.shuffle} addPicture={this.addPicture}/>
-        <Modal_picture close={this.close_modal}/>
+        <ModalPicture close={this.close_modal}/>
         <div>
           <Board pictures={this.state.pictures} picturesClass={this.picturesClass()} onClick={this.zoom}/>
         </div>
