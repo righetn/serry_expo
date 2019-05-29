@@ -17,6 +17,7 @@ class Picture extends React.Component {
                     className={this.state.mouseOver ? "pictureOver" : "picture"}
                     onMouseOver={() => this.setState({ mouseOver: true })}
                     onMouseOut={() => this.setState({ mouseOver: false })}
+                    onClick={this.props.onClick}
                     src={this.props.picture}
                     alt="Tableau"
                     >
