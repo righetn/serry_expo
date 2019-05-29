@@ -8,12 +8,14 @@ body {
     grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 10px;
+    align-items: center;
+    justify-items: center;
   }
 
 .picture-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     overflow: hidden;
     border-radius: 20px;
     padding: 2px;
