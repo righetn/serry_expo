@@ -3,7 +3,10 @@ import Button from 'react-bootstrap/Button';
 import '../scss/style.scss';
 
 const NavBar = ({ shuffle = () => {}, addPicture = () => {} }) => (
-    <div className="navbar">
+    <div>
+        <div className="navbar">
+            <h1 className="name">Exposition Catherine Serry</h1>
+        </div>
         <Button className="navbar-btn" onClick={shuffle}>
             Mélanger 
         </Button>
